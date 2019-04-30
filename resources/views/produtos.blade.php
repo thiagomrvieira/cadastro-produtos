@@ -78,9 +78,9 @@
 
         $ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN': "{{ csrg_token() }}"
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
             }
-        })
+        });
 
         function novoProduto(){
             $('#id').val('');
@@ -119,7 +119,7 @@
         }
 
 
-        function carregarCategorias() {
+        function carregarProdutos() {
             $.getJSON('/api/produtos', function(produtos){
                 for(i=0;i<produtos.length;i++) {
                     linha = montarLinha(produtos[i]);
@@ -131,6 +131,7 @@
 
         $(function(){
             carregarCategorias();
+            carregarProdutos();
         })
 
     </script>

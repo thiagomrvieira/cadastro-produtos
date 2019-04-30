@@ -13,16 +13,19 @@ class ControladorProduto extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function indexView()
+    {
+        return view ('produtos');
+    }
+
+
     public function index()
     {
-        
-        $produto = new Produto();
-        $produto->nome = "Produto 01";
-        $produto->estoque = 100;
-        $produto->preco = 1.5;
-        $produto->save();
-        return view('produtos', compact('produto'));
+        $prods = Produto::all();
+        return $prods->toJson();
     }
+
+
 
     /**
      * Show the form for creating a new resource.

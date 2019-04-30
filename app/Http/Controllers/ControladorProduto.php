@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Produto;
+
 class ControladorProduto extends Controller
 {
     /**
@@ -13,7 +15,13 @@ class ControladorProduto extends Controller
      */
     public function index()
     {
-        return view('produtos');
+        
+        $produto = new Produto();
+        $produto->nome = "Produto 01";
+        $produto->estoque = 100;
+        $produto->preco = 1.5;
+        $produto->save();
+        return view('produtos', compact('produto'));
     }
 
     /**

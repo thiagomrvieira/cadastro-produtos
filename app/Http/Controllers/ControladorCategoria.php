@@ -17,6 +17,8 @@ class ControladorCategoria extends Controller
     {
         $cats = Categoria::all();
         return view('categorias', compact('cats'));
+
+        
     }
 
     /**
@@ -100,6 +102,13 @@ class ControladorCategoria extends Controller
         }
         return redirect('/categorias');
     }
+
+    public function indexJson(){
+        $cats = Categoria::all();
+        return json_encode($cats);
+    }
+
+
 }
 
 

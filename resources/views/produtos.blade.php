@@ -75,6 +75,13 @@
 
 @section('javascript')
     <script type="text/javascript">
+
+        $ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrg_token() }}"
+            }
+        })
+
         function novoProduto(){
             $('#id').val('');
             $('#nomeProduto').val('');
@@ -103,7 +110,7 @@
                 "<td>" + p.categoria_id + "</td>" +
                 "<td>" +
                     '<button class="btn btn-sm btn-primary"> Editar </button>' +
-                    
+
                     '<button class="btn btn-sm btn-danger"> Apagar </button>' +
 
                 "</td>" +

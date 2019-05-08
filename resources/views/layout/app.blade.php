@@ -25,7 +25,7 @@
     
     <script src="{{ asset('js/app.js')}}" type="text/javascript"></script>
     
-    @hasSection ('javascript')
+    @hasSection('javascript')
     
         @yield('javascript')
         
